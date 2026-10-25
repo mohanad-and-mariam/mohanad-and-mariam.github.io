@@ -461,7 +461,7 @@
 const CONFIG = {
   groom: "Mohanad",
   bride: "Mariam",
-  date: "2026-11-11T20:00:00",          // ميعاد الفرح (سنة-شهر-يوم T ساعة:دقيقة)
+  date: "2026-11-11T20:00:00+02:00",    // ميعاد الفرح بتوقيت القاهرة (سنة-شهر-يوم T ساعة:دقيقة + فرق التوقيت؛ مصر في نوفمبر +02:00)
   doorsOpen: "الساعة 8:00 مساءً",
   venueName: "فندق الماسة",
   venueAddress: "مدينة نصر، القاهرة",
@@ -473,8 +473,10 @@ const CONFIG = {
 };
 /* ========================================================= */
 
-const when = new Date(CONFIG.date);
+const when = new Date(CONFIG.date);   // لحظة الفرح الحقيقية — العداد صح لأي ضيف في أي دولة
 const pad = n => String(n).padStart(2, "0");
+// اليوم والشهر والسنة من النص نفسه، عشان التاريخ ما يتغيرش لو الضيف في دولة توقيتها مختلف
+const [Y, M, D] = CONFIG.date.slice(0, 10).split("-");
 const fields = {
   groom: CONFIG.groom,
   bride: CONFIG.bride,
@@ -482,10 +484,10 @@ const fields = {
   bi: CONFIG.bride[0],
   names: `${CONFIG.groom} & ${CONFIG.bride}`,
   initials: `${CONFIG.groom[0]}&${CONFIG.bride[0]}`,
-  dd: pad(when.getDate()),
-  mm: pad(when.getMonth() + 1),
-  yyyy: String(when.getFullYear()),
-  date: `${pad(when.getDate())}-${pad(when.getMonth() + 1)}-${when.getFullYear()}`,
+  dd: D,
+  mm: M,
+  yyyy: Y,
+  date: `${D}-${M}-${Y}`,
   doorsOpen: CONFIG.doorsOpen,
   venueName: CONFIG.venueName,
   venueAddress: CONFIG.venueAddress,
