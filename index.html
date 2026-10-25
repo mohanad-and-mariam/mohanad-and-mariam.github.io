@@ -502,7 +502,11 @@ const audio = document.getElementById("audio");
 const musicBtn = document.getElementById("music");
 let wantMusic = !!CONFIG.music;
 if (CONFIG.music) audio.src = CONFIG.music;
-function syncBtn() { musicBtn.textContent = audio.paused ? "▶" : "❚❚"; }
+const versePause = document.getElementById("versePause");
+function syncBtn() {
+  musicBtn.textContent = audio.paused ? "▶" : "❚❚";
+  versePause.textContent = audio.paused ? "تشغيل الموسيقى" : "إيقاف الموسيقى";
+}
 function startMusic() {
   if (!wantMusic || !audio.paused) return;
   audio.play().then(() => { musicBtn.classList.add("show"); syncBtn(); disarm(); }).catch(() => {});
@@ -517,8 +521,11 @@ musicBtn.addEventListener("click", e => {
   e.stopPropagation();
   if (audio.paused) { wantMusic = true; audio.play(); } else { wantMusic = false; audio.pause(); }
 });
-document.getElementById("versePause").addEventListener("click", e => {
-  e.stopPropagation(); wantMusic = false; audio.pause();
+// زرار الآية: ضغطة توقف وضغطة تشغّل
+versePause.addEventListener("click", e => {
+  e.stopPropagation();
+  if (audio.paused) { wantMusic = true; audio.play().then(() => musicBtn.classList.add("show")).catch(() => {}); }
+  else { wantMusic = false; audio.pause(); }
 });
 
 /* ---------- الصفحات ---------- */
