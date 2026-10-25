@@ -246,8 +246,8 @@
 
   /* شريط التقدم + تلميح */
   .bars { position: fixed; top: max(10px, env(safe-area-inset-top)); left: 10px; right: 10px; z-index: 20; display: flex; gap: 4px; pointer-events: none; }
-  .bars i { flex: 1; height: 2px; border-radius: 2px; background: rgba(160,140,110,.3); overflow: hidden; }
-  .bars i::after { content: ""; display: block; height: 100%; width: 0; background: var(--gold); transition: width .5s ease; }
+  .bars i { flex: 1; height: 3.5px; border-radius: 3px; background: rgba(55,44,33,.42); overflow: hidden; box-shadow: 0 0 0 .5px rgba(255,255,255,.35); }
+  .bars i::after { content: ""; display: block; height: 100%; width: 0; background: #5a3f14; transition: width .5s ease; }
   .bars i.on::after { width: 100%; }
   .tap-hint {
     position: fixed; bottom: max(22px, env(safe-area-inset-bottom)); left: 50%; transform: translateX(-50%); z-index: 20;
