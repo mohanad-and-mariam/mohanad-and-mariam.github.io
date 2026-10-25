@@ -12,7 +12,7 @@
 افتح `index.html` وابحث عن `const CONFIG = {` — غيّر الأسماء والتاريخ والقاعة من هناك بس.
 
 ## الموسيقى
-- `music.mp3` — Gymnopédie No. 1 (Erik Satie)، عزف بيانو Robin Alciatore — ملكية عامة (Public domain) من Wikimedia Commons
+- `music.mp3` — River Flows in You (Yiruma) — ملف من صاحب الدعوة، والأغنية حقوقها محفوظة لـ Yiruma (اختيار صاحب الدعوة وعلى مسؤوليته)
 - بتحاول تشتغل أول ما اللينك يتفتح؛ لو المتصفح منعها (أغلب الموبايلات بتمنع) بتشتغل مع أول لمسة
 - لتغييرها: حط ملفك جنب index.html واكتب اسمه في `music` جوه CONFIG
 
