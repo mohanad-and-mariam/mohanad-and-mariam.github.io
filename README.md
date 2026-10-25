@@ -12,13 +12,13 @@
 افتح `index.html` وابحث عن `const CONFIG = {` — غيّر الأسماء والتاريخ والقاعة من هناك بس.
 
 ## الموسيقى
-- `music.wav` مقطوعة هادية مولّدة على كوردات Canon (حقوقها مفتوحة)
+- `music.mp3` — Gymnopédie No. 1 (Erik Satie)، عزف بيانو Robin Alciatore — ملكية عامة (Public domain) من Wikimedia Commons
 - بتحاول تشتغل أول ما اللينك يتفتح؛ لو المتصفح منعها (أغلب الموبايلات بتمنع) بتشتغل مع أول لمسة
 - لتغييرها: حط ملفك جنب index.html واكتب اسمه في `music` جوه CONFIG
 
-## النشر ببلاش
-1. ادخل https://app.netlify.com/drop
-2. اسحب فولدر `wedding-invite` كله وارميه في الصفحة
-3. هياخد لينك زي `xxxx.netlify.app` — تقدر تغيّر الاسم من Site settings
+## النشر
+- اللينك: https://mohanad-and-mariam.github.io
+- الريبو: github.com/mohanad-and-mariam/mohanad-and-mariam.github.io (GitHub Pages من فرع `main`)
+- أي تعديل: commit + push على `main`، والموقع بيتحدّث لوحده خلال دقيقة
 
 ملاحظة: معاينة الملفات جوه تطبيق Claude مش بتشغّل JavaScript — الباب هيفتح بس الصفحات هتبقى تحت بعض والموسيقى مش هتشتغل. جرّب من Chrome أو من اللينك بعد الرفع.
