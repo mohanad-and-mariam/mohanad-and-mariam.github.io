@@ -1,16 +1,16 @@
 <!doctype html>
-<html lang="en" dir="ltr">
+<html lang="ar" dir="rtl">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Mohanad &amp; Mariam — 11-11-2026</title>
-<meta name="description" content="You're invited to our wedding">
+<meta name="description" content="دعوة لحضور حفل زفافنا">
 <meta name="theme-color" content="#060c0b">
 <link rel="icon" href="data:,">
 <script>document.documentElement.classList.add("js");</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Great+Vibes&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Aref+Ruqaa:wght@400;700&family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&family=Tajawal:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
     --cream: #f3ece2;
@@ -27,13 +27,14 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
   [hidden] { display: none !important; }
   html, body { height: 100%; background: var(--night); color: var(--ink); }
-  body { font-family: "Cormorant Garamond", serif; overflow: hidden; -webkit-tap-highlight-color: transparent; }
+  body { font-family: "Amiri", serif; overflow: hidden; -webkit-tap-highlight-color: transparent; }
   html:not(.js) body { overflow: auto; }
   body:has(#door:not(:checked)) { overflow: hidden !important; }
   #door { position: absolute; opacity: 0; pointer-events: none; }
 
   .script { font-family: "Great Vibes", cursive; font-weight: 400; }
-  .caps { font-family: "Jost", sans-serif; font-weight: 300; text-transform: uppercase; letter-spacing: .32em; font-size: 10.5px; }
+  .caps { font-family: "Tajawal", sans-serif; font-weight: 400; letter-spacing: 0; font-size: 13px; }
+  .ar-script { font-family: "Aref Ruqaa", serif; font-weight: 400; }
   .foil {
     background: var(--foil); background-size: 220% 100%;
     -webkit-background-clip: text; background-clip: text; color: transparent;
@@ -93,16 +94,16 @@
     background: linear-gradient(rgba(42,30,14,.62), rgba(42,30,14,0)); }
   .gate-foot { bottom: 0; padding: 40px 16px max(22px, env(safe-area-inset-bottom));
     background: linear-gradient(rgba(42,30,14,0), rgba(42,30,14,.6)); }
-  .gate-head .caps { color: #f3e3bd; font-size: 9.5px; letter-spacing: .5em; }
+  .gate-head .caps { color: #f3e3bd; font-size: 13px; }
   .gate-head .script { font-size: 36px; line-height: 1.2; color: #fff6e0; text-shadow: 0 2px 12px rgba(60,40,10,.6); }
   .gate-foot .caps {
-    display: inline-block; color: #fff; font-size: 13px; font-weight: 400; letter-spacing: .3em;
+    display: inline-block; color: #fff; font-size: 16px; font-weight: 500; letter-spacing: 0;
     padding: 11px 26px; border-radius: 40px;
     background: rgba(30,22,10,.72); border: 1px solid rgba(243,223,166,.8);
     box-shadow: 0 4px 18px rgba(0,0,0,.35);
     animation: hintPulse 2.4s ease-in-out infinite;
   }
-  .gate-foot .sub { display: block; margin-top: 6px; font-family: "Jost"; font-weight: 300; font-size: 10px; letter-spacing: .4em; color: #f3e3bd; font-variant-numeric: lining-nums; }
+  .gate-foot .sub { direction: ltr; display: block; margin-top: 6px; font-family: "Cormorant Garamond"; font-weight: 300; font-size: 10px; letter-spacing: .4em; color: #f3e3bd; font-variant-numeric: lining-nums; }
   #door:checked ~ #gate .gate-head, #door:checked ~ #gate .gate-foot { opacity: 0; }
   @keyframes breathe { 50% { opacity: .45; } }
 
@@ -125,7 +126,7 @@
     display: flex; flex-direction: column; align-items: center; justify-content: center;
     text-align: center; padding: 56px 28px 64px;
     visibility: hidden; z-index: 0;
-    transform-origin: left center; backface-visibility: hidden;
+    transform-origin: right center; backface-visibility: hidden;
     background: var(--paper);
   }
   .page.active { visibility: visible; z-index: 1; }
@@ -133,12 +134,12 @@
   .page.turn-in  { visibility: visible; z-index: 3; animation: turnIn .95s cubic-bezier(.45,.05,.55,.95) forwards; }
   .page::after {
     content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0;
-    background: linear-gradient(90deg, rgba(0,0,0,0), rgba(0,0,0,.35));
+    background: linear-gradient(270deg, rgba(0,0,0,0), rgba(0,0,0,.35));
   }
   .page.turn-out::after { animation: shade .95s ease forwards; }
   .page.turn-in::after  { animation: shade .95s ease reverse forwards; }
-  @keyframes turnOut { from { transform: rotateY(0); } to { transform: rotateY(-100deg); } }
-  @keyframes turnIn  { from { transform: rotateY(-100deg); } to { transform: rotateY(0); } }
+  @keyframes turnOut { from { transform: rotateY(0); } to { transform: rotateY(100deg); } }
+  @keyframes turnIn  { from { transform: rotateY(100deg); } to { transform: rotateY(0); } }
   @keyframes shade { to { opacity: 1; } }
 
   html:not(.js) .book { position: static; perspective: none; }
@@ -170,7 +171,7 @@
   .lux-frame .c3 { bottom: -6px; left: -6px; transform: scaleY(-1); }
   .lux-frame .c4 { bottom: -6px; right: -6px; transform: scale(-1); }
 
-  .mono {
+  .mono { direction: ltr;
     width: 64px; height: 64px; border-radius: 50%; margin: 0 auto 16px;
     border: 1px solid rgba(216,191,143,.7); box-shadow: 0 0 0 4px rgba(216,191,143,.12), inset 0 0 0 4px rgba(216,191,143,.1);
     display: flex; align-items: center; justify-content: center;
@@ -181,20 +182,20 @@
   .lux-names { font-size: clamp(60px, 18vw, 82px); line-height: 1.05; }
   .lux-amp { font-size: 34px; line-height: 1; margin: 2px 0; }
   .divider { width: 170px; height: 14px; margin: 16px auto; color: var(--gold-soft); }
-  .invite { font-size: 17px; font-weight: 300; font-style: italic; line-height: 1.55; color: #e9dfca; letter-spacing: .02em; }
-  .date-lux { display: flex; align-items: center; justify-content: center; gap: 14px; margin: 18px 0 12px; }
+  .invite { font-size: 19px; line-height: 1.8; color: #e9dfca; }
+  .date-lux { direction: ltr; display: flex; align-items: center; justify-content: center; gap: 14px; margin: 18px 0 12px; }
   .date-lux span { font-family: "Cormorant Garamond", serif; font-weight: 400; font-size: 34px; line-height: 1; font-variant-numeric: lining-nums; }
   .date-lux i { width: 1px; height: 30px; background: linear-gradient(transparent, var(--gold-soft), transparent); }
-  .venue-line { font-size: 10px !important; letter-spacing: .3em !important; color: #e9dfca !important; }
+  .venue-line { font-size: 14px !important; color: #e9dfca !important; }
   .venue-line b { font-weight: 400; color: var(--gold-hi); }
 
   /* ---------- الصفحات الفاتحة ---------- */
   .page.light { background: var(--cream); }
   .page.light .caps { color: var(--muted); }
-  .page.light .heading { font-size: clamp(38px, 11vw, 50px); color: var(--ink); line-height: 1.1; margin: 6px 0 4px; }
+  .page.light .heading { font-size: clamp(32px, 9vw, 42px); color: var(--ink); line-height: 1.5; margin: 6px 0 4px; }
   /* أول وآخر صفحة: نفس ستايل الصفحات الفاتحة، وواخدين من الباب لمسة الدهب بس */
   .page.light .foil { background-image: linear-gradient(100deg, #85632a 0%, #d4b064 22%, #9a7535 40%, #e2c27b 55%, #8d6a2e 72%, #c9a258 88%, #85632a 100%); }
-  .page.light .mono { border-color: rgba(176,141,87,.65); box-shadow: 0 0 0 4px rgba(176,141,87,.1); color: var(--gold); }
+  .page.light .mono { direction: ltr; border-color: rgba(176,141,87,.65); box-shadow: 0 0 0 4px rgba(176,141,87,.1); color: var(--gold); }
   .page.light .invite, .page.light .lead { color: var(--ink); }
   .page.light .divider { color: var(--gold); }
   .page.light .venue-line { color: var(--muted) !important; }
@@ -212,25 +213,25 @@
   .count { display: grid; grid-template-columns: 1fr 1fr; gap: 22px 40px; margin: 26px 0 18px; }
   .count b { display: block; font-style: italic; font-weight: 300; font-size: clamp(54px, 16vw, 68px); line-height: 1; color: var(--gold); }
   .count b::after { content: ""; display: block; width: 46px; height: 1px; margin: 10px auto 8px; background: var(--gold-soft); }
-  .count small { font-family: "Jost", sans-serif; font-weight: 300; font-size: 10px; letter-spacing: .3em; text-transform: uppercase; color: var(--muted); }
-  .the-day { font-size: 44px; color: var(--gold); margin: 24px 0; }
-  .date-big { font-family: "Jost", sans-serif; font-weight: 300; letter-spacing: .45em; font-size: 15px; margin-top: 6px; }
+  .count small { font-family: "Tajawal", sans-serif; font-size: 14px; color: var(--muted); }
+  .the-day { font-size: 36px; color: var(--gold); margin: 24px 0; }
+  .date-big { direction: ltr; font-variant-numeric: lining-nums; font-family: "Cormorant Garamond", serif; font-weight: 300; letter-spacing: .45em; font-size: 15px; margin-top: 6px; }
 
-  .verse-note { font-style: italic; font-size: 15px; color: var(--muted); }
+  .verse-note { font-size: 16px; color: var(--muted); }
   .pause-btn { margin: 10px 0 26px; }
   .bism { font-family: "Amiri", serif; font-size: 22px; color: var(--gold); margin: 10px 0 14px; direction: rtl; }
   .verse { font-family: "Amiri", serif; direction: rtl; font-size: clamp(21px, 5.8vw, 25px); line-height: 2.1; color: var(--ink); max-width: 290px; }
-  .verse-ref { font-family: "Jost", sans-serif; font-weight: 300; font-size: 11px; letter-spacing: .25em; color: var(--muted); margin-top: 12px; text-transform: uppercase; }
-  .body-txt { font-size: 19px; font-weight: 300; line-height: 1.65; max-width: 330px; margin: 12px auto 0; color: var(--ink); }
+  .verse-ref { font-family: "Tajawal", sans-serif; font-size: 14px; color: var(--muted); margin-top: 12px; }
+  .body-txt { font-size: 19px; line-height: 1.9; max-width: 330px; margin: 12px auto 0; color: var(--ink); }
   .detail { margin: 16px 0 0; }
   .detail .caps { display: block; margin-bottom: 4px; }
-  .detail .val { font-size: 22px; font-weight: 400; color: var(--ink); }
-  .detail .sub { font-size: 16px; font-weight: 300; color: var(--muted); }
-  .lead { font-size: 17px; font-weight: 300; line-height: 1.55; color: #e9dfca; max-width: 290px; margin: 8px auto 0; font-style: italic; }
+  .detail .val { font-size: 23px; font-weight: 700; color: var(--ink); }
+  .detail .sub { font-variant-numeric: lining-nums; font-size: 16px; font-weight: 300; color: var(--muted); }
+  .lead { font-size: 19px; line-height: 1.7; color: #e9dfca; max-width: 290px; margin: 8px auto 0; }
   .btn {
     display: inline-block; margin: 6px 4px 0; padding: 9px 20px;
     border: 1px solid var(--gold); border-radius: 40px; background: transparent;
-    font-family: "Jost", sans-serif; font-weight: 300; font-size: 11px; letter-spacing: .22em; text-transform: uppercase;
+    font-family: "Tajawal", sans-serif; font-weight: 400; font-size: 14px; letter-spacing: 0;
     color: var(--ink); text-decoration: none; cursor: pointer;
   }
   .btn:hover { background: var(--gold); color: #fff; }
@@ -238,8 +239,8 @@
 
   @media (max-height: 700px) {
     .count { gap: 14px 36px; margin: 16px 0 12px; } .count b { font-size: 48px; }
-    .page.light .heading { font-size: 34px; } .verse { font-size: 19px; line-height: 1.9; }
-    .lux-names { font-size: 56px; } .mono { width: 54px; height: 54px; margin-bottom: 10px; } .divider { margin: 10px auto; }
+    .page.light .heading { font-size: 30px; } .verse { font-size: 19px; line-height: 1.9; }
+    .lux-names { font-size: 56px; } .mono { direction: ltr; width: 54px; height: 54px; margin-bottom: 10px; } .divider { margin: 10px auto; }
     .date-lux { margin: 12px 0 8px; } .date-lux span { font-size: 28px; }
   }
 
@@ -253,7 +254,7 @@
     pointer-events: none; white-space: nowrap;
     padding: 9px 20px; border-radius: 40px;
     background: rgba(43,36,30,.86); color: #fff; border: 1px solid rgba(216,191,143,.7);
-    font-size: 11.5px !important; font-weight: 400 !important; letter-spacing: .24em !important;
+    font-size: 14px !important; font-weight: 500 !important; letter-spacing: 0 !important;
     box-shadow: 0 4px 14px rgba(0,0,0,.18);
     animation: hintPulse 2.4s ease-in-out infinite;
   }
@@ -335,7 +336,7 @@
 
 <!-- ===================== المدخل ===================== -->
 <!-- الباب بيفتح بـ CSS (checkbox) عشان يشتغل حتى لو JavaScript مش شغال -->
-<input type="checkbox" id="door" aria-label="Open the invitation">
+<input type="checkbox" id="door" aria-label="افتح الدعوة">
 <label id="gate" for="door">
   <div class="scene">
     <img class="bg" src="door.webp" alt="" fetchpriority="high">
@@ -347,17 +348,17 @@
     </div>
   </div>
   <div class="gate-head">
-    <div class="caps">The wedding of</div>
+    <div class="caps">حفل زفاف</div>
     <div class="script" data-f="names">Mohanad &amp; Mariam</div>
   </div>
   <div class="gate-foot">
-    <span class="caps">Tap to open</span>
+    <span class="caps">اضغط لفتح الباب</span>
     <span class="sub" data-f="date">11-11-2026</span>
   </div>
   <div class="flash"></div>
 </label>
 
-<button id="music" aria-label="Pause or play music">❚❚</button>
+<button id="music" aria-label="تشغيل أو إيقاف الموسيقى">❚❚</button>
 <audio id="audio" loop preload="auto"></audio>
 
 <div class="bars" id="bars" hidden></div>
@@ -370,16 +371,16 @@
     <svg class="sprig tl"><use href="#sprig"/></svg>
     <svg class="sprig br"><use href="#sprig"/></svg>
     <div class="mono st" style="--i:0"><span data-f="gi">M</span><em>&amp;</em><span data-f="bi">M</span></div>
-    <div class="caps st" style="--i:1">Together with their families</div>
+    <div class="caps st" style="--i:1">بحضور الأهل والأحباب</div>
     <div class="lux-names script foil st" style="--i:2" data-f="groom">Mohanad</div>
     <div class="lux-amp script foil st" style="--i:3">&amp;</div>
     <div class="lux-names script foil st" style="--i:4" data-f="bride">Mariam</div>
     <svg class="divider st" style="--i:5"><use href="#divider"/></svg>
-    <p class="invite st" style="--i:6">request the honour of your presence<br>at the celebration of their marriage</p>
+    <p class="invite st" style="--i:6">يتشرّفان بدعوتكم لحضور<br>حفل زفافهما</p>
     <div class="date-lux st" style="--i:7">
       <span class="foil" data-f="dd">11</span><i></i><span class="foil" data-f="mm">11</span><i></i><span class="foil" data-f="yyyy">2026</span>
     </div>
-    <div class="caps venue-line st" style="--i:8"><b data-f="doorsOpen">8:00 PM</b> &nbsp;·&nbsp; <span data-f="venueName">Al Masa Hotel</span></div>
+    <div class="caps venue-line st" style="--i:8"><b data-f="doorsOpen">الساعة 8:00 مساءً</b> &nbsp;·&nbsp; <span data-f="venueName">فندق الماسة</span></div>
   </section>
 
   <!-- 2. العداد -->
@@ -387,27 +388,26 @@
     <div class="frame"></div>
     <svg class="sprig tl"><use href="#sprig"/></svg>
     <svg class="sprig br"><use href="#sprig"/></svg>
-    <div class="caps st" style="--i:0">The countdown</div>
-    <div class="heading script st" style="--i:1">Every moment brings us closer</div>
+    <div class="caps st" style="--i:0">العد التنازلي</div>
+    <div class="heading ar-script st" style="--i:1">كل لحظة بتقرّبنا</div>
     <div class="count st" id="timer" style="--i:2">
-      <div><b id="d">00</b><small>Days</small></div>
-      <div><b id="h">00</b><small>Hours</small></div>
-      <div><b id="m">00</b><small>Minutes</small></div>
-      <div><b id="s">00</b><small>Seconds</small></div>
+      <div><b id="d">00</b><small>يوم</small></div>
+      <div><b id="h">00</b><small>ساعة</small></div>
+      <div><b id="m">00</b><small>دقيقة</small></div>
+      <div><b id="s">00</b><small>ثانية</small></div>
     </div>
-    <div class="the-day script" id="theDay" hidden>Today is the day</div>
+    <div class="the-day ar-script" id="theDay" hidden>النهارده يوم الفرح</div>
     <div class="date-big st" style="--i:3;color:var(--muted)" data-f="date">11-11-2026</div>
   </section>
 
   <!-- 3. الآية -->
   <section class="page light" style="background:var(--paper)">
     <div class="frame"></div>
-    <div class="verse-note st" style="--i:0">Kindly pause the music while reading the verse</div>
-    <button class="btn pause-btn st" id="versePause" style="--i:1">Pause music</button>
-    <div class="caps st" style="--i:2">In the name of Allah, the Most Merciful</div>
-    <div class="bism st" style="--i:3">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+    <div class="verse-note st" style="--i:0">يُرجى إيقاف الموسيقى أثناء قراءة الآية</div>
+    <button class="btn pause-btn st" id="versePause" style="--i:1">إيقاف الموسيقى</button>
+        <div class="bism st" style="--i:3">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
     <div class="verse st" style="--i:4">﴿ وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ﴾</div>
-    <div class="verse-ref st" style="--i:5">Surat Ar-Rum · 21</div>
+    <div class="verse-ref st" style="--i:5">سورة الروم — الآية 21</div>
   </section>
 
   <!-- 4. الشكر -->
@@ -415,9 +415,9 @@
     <div class="frame"></div>
     <svg class="sprig tl"><use href="#sprig"/></svg>
     <svg class="sprig br"><use href="#sprig"/></svg>
-    <div class="caps st" style="--i:0">With gratitude</div>
-    <div class="heading script st" style="--i:1">Thank you</div>
-    <p class="body-txt st" style="--i:2" data-f="thanks">To our families and friends who stood beside us every step of the way — your love brought us here. We can't wait to celebrate with you.</p>
+    <div class="caps st" style="--i:0">كلمة شكر</div>
+    <div class="heading ar-script st" style="--i:1">شكراً من القلب</div>
+    <p class="body-txt st" style="--i:2" data-f="thanks">إلى أهلنا وأحبابنا الذين كانوا معنا في كل خطوة، محبتكم هي ما أوصلنا إلى هذا اليوم، ويسعدنا أن نحتفل معكم.</p>
   </section>
 
   <!-- 5. الميعاد والمكان -->
@@ -425,13 +425,13 @@
     <div class="frame"></div>
     <svg class="sprig tl"><use href="#sprig"/></svg>
     <svg class="sprig br"><use href="#sprig"/></svg>
-    <div class="caps st" style="--i:0">The celebration</div>
-    <div class="heading script st" style="--i:1">When &amp; Where</div>
-    <div class="detail st" style="--i:2"><span class="caps">Doors open</span><div class="val" data-f="doorsOpen">8:00 PM</div><div class="sub" data-f="date">11-11-2026</div></div>
-    <div class="detail st" style="--i:3"><span class="caps">Venue</span><div class="val" data-f="venueName">Al Masa Hotel</div><div class="sub" data-f="venueAddress">Nasr City, Cairo</div></div>
+    <div class="caps st" style="--i:0">موعد الحفل</div>
+    <div class="heading ar-script st" style="--i:1">الزمان والمكان</div>
+    <div class="detail st" style="--i:2"><span class="caps">استقبال الضيوف</span><div class="val" data-f="doorsOpen">الساعة 8:00 مساءً</div><div class="sub" data-f="date">11-11-2026</div></div>
+    <div class="detail st" style="--i:3"><span class="caps">المكان</span><div class="val" data-f="venueName">فندق الماسة</div><div class="sub" data-f="venueAddress">مدينة نصر، القاهرة</div></div>
     <div class="btns st" style="--i:4">
-      <a class="btn" id="mapBtn" href="https://www.google.com/maps/search/?api=1&amp;query=Al%20Masa%20Hotel%20Nasr%20City%20Cairo" target="_blank" rel="noopener">Open in Maps</a>
-      <a class="btn" id="calBtn" target="_blank" rel="noopener">Add to calendar</a>
+      <a class="btn" id="mapBtn" href="https://www.google.com/maps/search/?api=1&amp;query=Al%20Masa%20Hotel%20Nasr%20City%20Cairo" target="_blank" rel="noopener">افتح الخريطة</a>
+      <a class="btn" id="calBtn" target="_blank" rel="noopener">أضف للتقويم</a>
     </div>
   </section>
 
@@ -440,10 +440,10 @@
     <div class="frame"></div>
     <svg class="sprig tl"><use href="#sprig"/></svg>
     <svg class="sprig br"><use href="#sprig"/></svg>
-    <div class="caps st" style="--i:0">Attire</div>
-    <p class="lead st" style="--i:1" data-f="dressCode">No formal dress code — come as you are, beautifully</p>
+    <div class="caps st" style="--i:0">اللبس</div>
+    <p class="lead st" style="--i:1" data-f="dressCode">لا يوجد زي رسمي محدد — تعالوا بأجمل إطلالة</p>
     <svg class="divider st" style="--i:2;margin:28px auto"><use href="#divider"/></svg>
-    <div class="caps st" style="--i:3">We can't wait to celebrate with you</div>
+    <div class="caps st" style="--i:3">في انتظاركم لنحتفل معاً</div>
     <div class="lux-names script foil st" style="--i:4;font-size:clamp(46px,13vw,60px);margin-top:12px" data-f="names">Mohanad &amp; Mariam</div>
     <div class="date-lux st" style="--i:5">
       <span class="foil" data-f="dd">11</span><i></i><span class="foil" data-f="mm">11</span><i></i><span class="foil" data-f="yyyy">2026</span>
@@ -452,7 +452,7 @@
 
 </main>
 
-<div class="tap-hint caps" id="hint" hidden>Tap to continue ›</div>
+<div class="tap-hint caps" id="hint" hidden>اضغط للمتابعة ‹</div>
 
 <script>
 /* =========================================================
@@ -462,13 +462,13 @@ const CONFIG = {
   groom: "Mohanad",
   bride: "Mariam",
   date: "2026-11-11T20:00:00",          // ميعاد الفرح (سنة-شهر-يوم T ساعة:دقيقة)
-  doorsOpen: "8:00 PM",
-  venueName: "Al Masa Hotel",
-  venueAddress: "Nasr City, Cairo",
+  doorsOpen: "الساعة 8:00 مساءً",
+  venueName: "فندق الماسة",
+  venueAddress: "مدينة نصر، القاهرة",
   mapQuery: "Al Masa Hotel Nasr City Cairo",       // اللي يتكتب في جوجل ماب، أو حط لينك كامل في mapUrl
   mapUrl: "",
-  dressCode: "No formal dress code — come as you are, beautifully",
-  thanks: "To our families and friends who stood beside us every step of the way — your love brought us here. We can't wait to celebrate with you.",
+  dressCode: "لا يوجد زي رسمي محدد — تعالوا بأجمل إطلالة",
+  thanks: "إلى أهلنا وأحبابنا الذين كانوا معنا في كل خطوة، محبتكم هي ما أوصلنا إلى هذا اليوم، ويسعدنا أن نحتفل معكم.",
   music: "music.mp3"                     // ملف الموسيقى جنب الملف ده (سيبه فاضي لو مش عايز موسيقى)
 };
 /* ========================================================= */
@@ -529,7 +529,7 @@ let cur = 0, busy = false;
 
 function render() {
   [...bars.children].forEach((b, i) => b.classList.toggle("on", i <= cur));
-  hint.textContent = cur === pages.length - 1 ? "Tap to start again ↺" : "Tap to continue ›";
+  hint.textContent = cur === pages.length - 1 ? "اضغط للبداية من جديد ↻" : "اضغط للمتابعة ‹";
   hint.classList.toggle("on-dark", pages[cur].classList.contains("dark"));
 }
 function go(n) {
@@ -553,7 +553,7 @@ const prev = () => go(cur - 1);
 function showUI() { bars.hidden = false; hint.hidden = false; render(); }
 door.addEventListener("change", () => { startMusic(); setTimeout(showUI, 3700); });
 
-// الضغط: الثلث الشمال يرجع، الباقي يقدّم — والسحب يمين/شمال
+// الضغط: الثلث اليمين يرجع، الباقي يقدّم — والسحب يمين/شمال (زي كتاب عربي)
 const book = document.getElementById("book");
 let sx = null, sy = 0;
 book.addEventListener("pointerdown", e => { sx = e.clientX; sy = e.clientY; });
@@ -561,13 +561,13 @@ book.addEventListener("pointerup", e => {
   if (sx === null || e.target.closest("a, button")) { sx = null; return; }
   const dx = e.clientX - sx, dy = e.clientY - sy;
   sx = null;
-  if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) { dx < 0 ? next() : prev(); return; }
-  if (e.clientX < innerWidth / 3) prev(); else next();
+  if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) { dx > 0 ? next() : prev(); return; }
+  if (e.clientX > innerWidth * 2 / 3) prev(); else next();
 });
 document.addEventListener("keydown", e => {
   if (!door.checked) return;
-  if (e.key === "ArrowRight" || e.key === " ") next();
-  if (e.key === "ArrowLeft") prev();
+  if (e.key === "ArrowLeft" || e.key === " ") next();
+  if (e.key === "ArrowRight") prev();
 });
 
 /* ---------- الخريطة والتقويم ---------- */
@@ -576,7 +576,7 @@ document.getElementById("mapBtn").href =
 const fmt = d => d.toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, "");
 document.getElementById("calBtn").href =
   "https://calendar.google.com/calendar/render?action=TEMPLATE" +
-  "&text=" + encodeURIComponent(fields.names + " Wedding") +
+  "&text=" + encodeURIComponent("فرح " + fields.names) +
   "&dates=" + fmt(when) + "/" + fmt(new Date(when.getTime() + 4 * 3600e3)) +
   "&location=" + encodeURIComponent(CONFIG.venueName + ", " + CONFIG.venueAddress);
 
