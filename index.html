@@ -41,128 +41,66 @@
   }
   @keyframes foil { to { background-position: 220% 0; } }
 
-  /* ===================== المدخل (الباب) ===================== */
+  /* ===================== المدخل (صورة الباب) ===================== */
+  /* الصورة 940×1672 — الباب متقاس منها بالبكسل: من x=255 لـ 679، ومن y=302 لـ 1323، والفاصل بين الضلفتين عند x=468 */
   #gate {
     position: fixed; inset: 0; z-index: 100; display: block; cursor: pointer; overflow: hidden;
-    background:
-      radial-gradient(ellipse 70% 45% at 50% 46%, rgba(216,175,100,.16), transparent 70%),
-      radial-gradient(ellipse at 50% 40%, #182824 0%, #0a1311 55%, #030706 100%);
-    transition: opacity 1s ease 3.2s, visibility 0s linear 4.2s;
+    background: #2a2115;
+    transition: opacity 1s ease 3.1s, visibility 0s linear 4.1s;
   }
-  #gate::before { content: ""; position: absolute; inset: 0; background: var(--pattern-gold); }
   #door:checked ~ #gate { opacity: 0; visibility: hidden; pointer-events: none; }
-
-  .stage {
-    position: absolute; inset: 0;
-    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px;
-    transform-origin: 50% calc(50% + 14px);
-    transition: transform 2.2s cubic-bezier(.6,0,.35,1) 1.5s;
+  .scene {
+    position: absolute; left: 50%; top: 50%;
+    width: max(100vw, calc(100vh * 940 / 1672)); aspect-ratio: 940 / 1672;
+    transform: translate(-50%, -50%); transform-origin: 49.68% 48.59%;
+    transition: transform 2.4s cubic-bezier(.6,0,.35,1) 1.3s;
   }
-  #door:checked ~ #gate .stage { transform: scale(3.4); }
+  @supports (height: 100dvh) { .scene { width: max(100vw, calc(100dvh * 940 / 1672)); } }
+  #door:checked ~ #gate .scene { transform: translate(-50%, -50%) scale(3.2); }
+  .scene > .bg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+  .doorway { position: absolute; left: 27.128%; top: 18.062%; width: 45.106%; height: 61.065%; perspective: 1100px; }
+  .door-light {
+    position: absolute; inset: 0;
+    clip-path: polygon(50.24% 0.00%, 47.64% 0.78%, 41.98% 2.74%, 35.14% 4.70%, 28.07% 6.66%, 21.46% 8.62%, 15.09% 10.58%, 10.38% 12.54%, 6.84% 14.50%, 4.25% 16.45%, 2.36% 18.41%, 1.18% 20.37%, 0.47% 22.33%, 0.24% 24.29%, 0.00% 25.47%, 0.00% 100.00%, 100.00% 100.00%, 100.00% 25.47%, 99.53% 24.29%, 99.29% 22.33%, 98.58% 20.37%, 97.17% 18.41%, 95.52% 16.45%, 92.92% 14.50%, 89.15% 12.54%, 84.91% 10.58%, 79.25% 8.62%, 72.17% 6.66%, 65.09% 4.70%, 58.73% 2.74%, 52.12% 0.78%);
+    background: radial-gradient(ellipse 70% 55% at 50% 58%, #fffdf6 0%, #fff2d2 30%, #f4cf86 62%, #c08a3e 100%);
+  }
+  .leaf {
+    position: absolute; top: 0; bottom: 0; overflow: hidden;
+    transition: transform 2s cubic-bezier(.65,0,.3,1) .35s, filter 2s ease .35s;
+    backface-visibility: hidden; will-change: transform;
+  }
+  .leaf img { position: absolute; top: -29.58%; height: 163.76%; max-width: none; display: block; }
+  .leaf.l { left: 0; width: 50.24%; transform-origin: left center;
+    clip-path: polygon(100.00% 0.00%, 94.84% 0.78%, 83.57% 2.74%, 69.95% 4.70%, 55.87% 6.66%, 42.72% 8.62%, 30.05% 10.58%, 20.66% 12.54%, 13.62% 14.50%, 8.45% 16.45%, 4.69% 18.41%, 2.35% 20.37%, 0.94% 22.33%, 0.47% 24.29%, 0.00% 25.47%, 0.00% 100.00%, 100.00% 100.00%); }
+  .leaf.l img { left: -119.72%; width: 441.31%; }
+  .leaf.r { right: 0; width: 49.76%; transform-origin: right center;
+    clip-path: polygon(0.00% 0.00%, 3.79% 0.78%, 17.06% 2.74%, 29.86% 4.70%, 44.08% 6.66%, 58.29% 8.62%, 69.67% 10.58%, 78.20% 12.54%, 85.78% 14.50%, 91.00% 16.45%, 94.31% 18.41%, 97.16% 20.37%, 98.58% 22.33%, 99.05% 24.29%, 100.00% 25.47%, 100.00% 100.00%, 0.00% 100.00%); }
+  .leaf.r img { left: -221.80%; width: 445.50%; }
+  #door:checked ~ #gate .leaf.l { transform: rotateY(80deg); filter: brightness(.7); }
+  #door:checked ~ #gate .leaf.r { transform: rotateY(-80deg); filter: brightness(.7); }
+  /* نبض نور خفيف عند المقابض عشان الضيف يعرف يضغط فين */
+  .knock {
+    position: absolute; left: 50.2%; top: 66.4%; width: 22%; aspect-ratio: 1; transform: translate(-50%, -50%);
+    border-radius: 50%; pointer-events: none;
+    background: radial-gradient(circle, rgba(255,236,180,.55), rgba(255,236,180,0) 65%);
+    animation: knock 2.4s ease-in-out infinite;
+  }
+  @keyframes knock { 0%,100% { opacity: .25; transform: translate(-50%,-50%) scale(.8); } 50% { opacity: 1; transform: translate(-50%,-50%) scale(1.15); } }
+  #door:checked ~ #gate .knock { opacity: 0; animation: none; }
 
-  .gate-head { text-align: center; transition: opacity .6s ease; }
-  .gate-head .caps { color: var(--gold-soft); font-size: 9.5px; letter-spacing: .5em; }
-  .gate-head .script { font-size: 34px; line-height: 1.2; display: inline-block; }
-  .gate-foot { text-align: center; color: var(--gold-soft); transition: opacity .6s ease; }
-  .gate-foot .caps { font-size: 10px; letter-spacing: .45em; animation: breathe 2.6s ease-in-out infinite; display: inline-block; }
-  .gate-foot .sub { font-variant-numeric: lining-nums; display: block; margin-top: 6px; font-family: "Jost"; font-weight: 300; font-size: 10px; letter-spacing: .4em; color: rgba(216,191,143,.6); }
+  .gate-head, .gate-foot { position: absolute; left: 0; right: 0; text-align: center; transition: opacity .6s ease; pointer-events: none; }
+  .gate-head { top: 0; padding: max(18px, env(safe-area-inset-top)) 16px 34px;
+    background: linear-gradient(rgba(42,30,14,.62), rgba(42,30,14,0)); }
+  .gate-foot { bottom: 0; padding: 40px 16px max(22px, env(safe-area-inset-bottom));
+    background: linear-gradient(rgba(42,30,14,0), rgba(42,30,14,.6)); }
+  .gate-head .caps { color: #f3e3bd; font-size: 9.5px; letter-spacing: .5em; }
+  .gate-head .script { font-size: 36px; line-height: 1.2; color: #fff6e0; text-shadow: 0 2px 12px rgba(60,40,10,.6); }
+  .gate-foot .caps { color: #fff6e0; font-size: 10.5px; letter-spacing: .45em; animation: breathe 2.6s ease-in-out infinite; display: inline-block; text-shadow: 0 1px 8px rgba(60,40,10,.7); }
+  .gate-foot .sub { display: block; margin-top: 6px; font-family: "Jost"; font-weight: 300; font-size: 10px; letter-spacing: .4em; color: #f3e3bd; font-variant-numeric: lining-nums; }
   #door:checked ~ #gate .gate-head, #door:checked ~ #gate .gate-foot { opacity: 0; }
   @keyframes breathe { 50% { opacity: .45; } }
 
-  /* الإطار الدهبي */
-  .portal {
-    --w: min(70vw, 300px, 39vh);
-    position: relative; width: var(--w); height: calc(var(--w) * 1.9);
-    padding: 9px;
-    border-radius: 50% 50% 3px 3px / 27% 27% 3px 3px;
-    background: linear-gradient(135deg, #7a5a26, #f2d898 22%, #a9803f 42%, #f7e6ae 60%, #8d6a30 80%, #e3c37f);
-    box-shadow: 0 0 0 1px rgba(0,0,0,.6), 0 0 60px rgba(226,184,104,.22), 0 30px 60px rgba(0,0,0,.6);
-  }
-  .portal::before {           /* خط خارجي رفيع */
-    content: ""; position: absolute; inset: -9px; border-radius: inherit;
-    border: 1px solid rgba(216,191,143,.45); pointer-events: none;
-  }
-  .portal .keystone {
-    position: absolute; top: -16px; left: 50%; width: 22px; height: 22px; transform: translateX(-50%) rotate(45deg);
-    background: linear-gradient(135deg, #f7e6ae, #a9803f); box-shadow: 0 0 14px rgba(240,210,140,.5); z-index: 2;
-  }
-  .doorway {
-    position: relative; width: 100%; height: 100%; overflow: hidden;
-    border-radius: 50% 50% 2px 2px / 27% 27% 2px 2px;
-    background: #050807;
-    perspective: 900px;
-    box-shadow: inset 0 0 0 1px rgba(0,0,0,.7);
-  }
-  /* النور اللي ورا الباب */
-  .glow {
-    position: absolute; inset: 0;
-    background: radial-gradient(ellipse at 50% 60%, #fffaf0 0%, #fbe3ad 28%, #d7a95a 55%, #5a3c14 85%);
-    opacity: .38; transition: opacity 1.6s ease .7s;
-  }
-  .rays {
-    position: absolute; left: 50%; top: 58%; width: 260%; aspect-ratio: 1; transform: translate(-50%,-50%);
-    background: repeating-conic-gradient(from 0deg, rgba(255,246,220,.0) 0deg 7deg, rgba(255,246,220,.55) 9deg, rgba(255,246,220,0) 11deg 18deg);
-    -webkit-mask: radial-gradient(circle, #000 0%, transparent 60%); mask: radial-gradient(circle, #000 0%, transparent 60%);
-    opacity: 0; transition: opacity 1.2s ease 1s;
-    animation: spin 40s linear infinite;
-  }
-  @keyframes spin { to { transform: translate(-50%,-50%) rotate(360deg); } }
-  #door:checked ~ #gate .glow { opacity: 1; }
-  #door:checked ~ #gate .rays { opacity: 1; }
-
-  /* الشبّاك النصف دايري فوق الباب */
-  .fanlight { position: absolute; left: 0; right: 0; top: 0; height: 28.5%; z-index: 2; }
-  .fanlight svg { width: 100%; height: 100%; display: block; }
-
-  /* ضلف الباب */
-  .leaves { position: absolute; left: 0; right: 0; bottom: 0; top: 28.5%; transform-style: preserve-3d; z-index: 3; }
-  .leaf {
-    position: absolute; top: 0; bottom: 0; width: 50%;
-    background: linear-gradient(90deg, #08110f, #13231f 50%, #0a1513);
-    transition: transform 2s cubic-bezier(.65,0,.3,1) .55s, filter 2s ease .55s;
-    backface-visibility: hidden;
-  }
-  .leaf svg { width: 100%; height: 100%; display: block; }
-  .leaf.l { left: 0; transform-origin: left center; box-shadow: inset -1px 0 0 rgba(0,0,0,.8); }
-  .leaf.r { right: 0; transform-origin: right center; }
-  .leaf.r svg { transform: scaleX(-1); }
-  #door:checked ~ #gate .leaf.l { transform: rotateY(82deg); filter: brightness(.55); }
-  #door:checked ~ #gate .leaf.r { transform: rotateY(-82deg); filter: brightness(.55); }
-  .bar { position: absolute; left: 0; right: 0; top: 28.5%; height: 5px; margin-top: -2px; z-index: 4;
-    background: linear-gradient(90deg, #8d6a30, #f2d898, #a9803f, #f7e6ae, #8d6a30); }
-
-  /* الختم */
-  .seal {
-    position: absolute; left: 50%; top: 66%; z-index: 5;
-    width: 76px; height: 76px; margin: -38px 0 0 -38px; border-radius: 50%;
-    background: radial-gradient(circle at 35% 30%, #fbecc0, #d4ae68 45%, #8f6a2f 80%);
-    box-shadow: 0 6px 18px rgba(0,0,0,.6), inset 0 0 0 3px rgba(255,240,200,.35), inset 0 0 0 6px rgba(120,86,36,.55), inset 0 0 0 7px rgba(255,240,200,.3);
-    display: flex; align-items: center; justify-content: center;
-    font-family: "Great Vibes", cursive; font-size: 28px; color: #4a3414; text-shadow: 0 1px 0 rgba(255,240,200,.6);
-    animation: sealPulse 2.6s ease-in-out infinite;
-    transition: transform .7s ease, opacity .7s ease .15s;
-  }
-  .seal::after {
-    content: ""; position: absolute; inset: -10px; border-radius: 50%;
-    border: 1px solid rgba(243,223,166,.55); animation: ring 2.6s ease-out infinite;
-  }
-  @keyframes sealPulse { 50% { box-shadow: 0 6px 26px rgba(240,200,120,.55), inset 0 0 0 3px rgba(255,240,200,.35), inset 0 0 0 6px rgba(120,86,36,.55), inset 0 0 0 7px rgba(255,240,200,.3); } }
-  @keyframes ring { from { transform: scale(.85); opacity: .9; } to { transform: scale(1.6); opacity: 0; } }
-  #door:checked ~ #gate .seal { transform: scale(1.5); opacity: 0; animation: none; }
-
-  /* فوانيس الحيطة */
-  .sconce { position: absolute; top: 44%; width: 10px; height: 34px; border-radius: 5px 5px 2px 2px;
-    background: linear-gradient(#f2d898, #8d6a30); }
-  .sconce::before { content: ""; position: absolute; left: 50%; top: -26px; width: 90px; height: 90px; transform: translateX(-50%);
-    border-radius: 50%; background: radial-gradient(circle, rgba(255,226,160,.55), rgba(255,210,130,0) 65%); animation: flicker 3.2s ease-in-out infinite; }
-  .sconce::after { content: ""; position: absolute; left: 50%; top: -10px; width: 8px; height: 14px; transform: translateX(-50%);
-    border-radius: 50% 50% 45% 45%; background: radial-gradient(circle at 50% 70%, #fff7dc, #ffc966 70%); }
-  .sconce.l { left: 7%; } .sconce.r { right: 7%; }
-  @keyframes flicker { 0%,100% { opacity: 1; } 40% { opacity: .78; } 60% { opacity: .92; } }
-  .floor-glow { position: absolute; left: 0; right: 0; bottom: 0; height: 22%;
-    background: radial-gradient(ellipse 45% 60% at 50% 0%, rgba(226,184,104,.18), transparent 70%); }
-
-  .flash { position: absolute; inset: 0; background: radial-gradient(circle at 50% 55%, #fffdf6, #fbeccb); opacity: 0; pointer-events: none; transition: opacity 1s ease 2.3s; }
+  .flash { position: absolute; inset: 0; background: radial-gradient(circle at 50% 50%, #fffdf6, #fbeccb); opacity: 0; pointer-events: none; transition: opacity 1s ease 2.2s; }
   #door:checked ~ #gate .flash { opacity: 1; }
 
   /* ذرات دهب */
@@ -389,49 +327,22 @@
 <!-- الباب بيفتح بـ CSS (checkbox) عشان يشتغل حتى لو JavaScript مش شغال -->
 <input type="checkbox" id="door" aria-label="Open the invitation">
 <label id="gate" for="door">
-  <div class="dust" aria-hidden="true">
-    <i style="left:8%;--t:13s;--d:0s;--x:24px"></i><i style="left:19%;--t:16s;--d:4s;--x:-18px"></i>
-    <i style="left:31%;--t:11s;--d:2s;--x:30px"></i><i style="left:44%;--t:15s;--d:7s;--x:-26px"></i>
-    <i style="left:57%;--t:12s;--d:1s;--x:18px"></i><i style="left:68%;--t:17s;--d:5s;--x:-30px"></i>
-    <i style="left:79%;--t:13s;--d:3s;--x:22px"></i><i style="left:91%;--t:15s;--d:6s;--x:-20px"></i>
+  <div class="scene">
+    <img class="bg" src="door.webp" alt="" fetchpriority="high">
+    <div class="doorway">
+      <div class="door-light"></div>
+      <div class="leaf l"><img src="door.webp" alt=""></div>
+      <div class="leaf r"><img src="door.webp" alt=""></div>
+      <div class="knock"></div>
+    </div>
   </div>
-  <span class="sconce l"></span><span class="sconce r"></span>
-  <div class="floor-glow"></div>
-
-  <div class="stage">
-    <div class="gate-head">
-      <div class="caps">The wedding of</div>
-      <div class="script foil" data-f="names">Mohanad &amp; Mariam</div>
-    </div>
-
-    <div class="portal">
-      <span class="keystone"></span>
-      <div class="doorway">
-        <div class="glow"></div>
-        <div class="rays"></div>
-        <div class="fanlight">
-          <svg viewBox="0 0 200 110" preserveAspectRatio="none">
-            <g fill="none" stroke="url(#g)" stroke-width="1.1">
-              <path d="M100 110L100 6M100 110L48 18M100 110L152 18M100 110L14 52M100 110L186 52M100 110L2 100M100 110L198 100"/>
-              <path d="M30 110A70 66 0 0 1 170 110" stroke-width="1.4"/>
-              <path d="M62 110A38 36 0 0 1 138 110" stroke-width="1.2"/>
-            </g>
-            <circle cx="100" cy="110" r="14" fill="url(#g)"/>
-          </svg>
-        </div>
-        <div class="bar"></div>
-        <div class="leaves">
-          <div class="leaf l"><svg><use href="#leafArt"/></svg></div>
-          <div class="leaf r"><svg><use href="#leafArt"/></svg></div>
-        </div>
-        <div class="seal" data-f="initials">M&amp;M</div>
-      </div>
-    </div>
-
-    <div class="gate-foot">
-      <span class="caps">Tap to open</span>
-      <span class="sub" data-f="date">11-11-2026</span>
-    </div>
+  <div class="gate-head">
+    <div class="caps">The wedding of</div>
+    <div class="script" data-f="names">Mohanad &amp; Mariam</div>
+  </div>
+  <div class="gate-foot">
+    <span class="caps">Tap to open</span>
+    <span class="sub" data-f="date">11-11-2026</span>
   </div>
   <div class="flash"></div>
 </label>
