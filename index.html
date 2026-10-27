@@ -400,8 +400,8 @@
     <div class="date-big st" style="--i:3;color:var(--muted)" data-f="date">11-11-2026</div>
   </section>
 
-  <!-- 3. الآية -->
-  <section class="page light" style="background:var(--paper)">
+  <!-- 3. الآية (كلامها أطول فبتاخد ٧ ثواني) -->
+  <section class="page light" data-auto="7000" style="background:var(--paper)">
     <div class="frame"></div>
     <div class="verse-note st" style="--i:0">يُرجى إيقاف الموسيقى أثناء قراءة الآية</div>
     <button class="btn pause-btn st" id="versePause" style="--i:1">إيقاف الموسيقى</button>
@@ -410,8 +410,8 @@
     <div class="verse-ref st" style="--i:5">سورة الروم — الآية 21</div>
   </section>
 
-  <!-- 4. الشكر -->
-  <section class="page light">
+  <!-- 4. الشكر (كلامها أطول فبتاخد ٧ ثواني) -->
+  <section class="page light" data-auto="7000">
     <div class="frame"></div>
     <svg class="sprig tl"><use href="#sprig"/></svg>
     <svg class="sprig br"><use href="#sprig"/></svg>
@@ -560,13 +560,15 @@ function go(n) {
 const next = () => go(cur === pages.length - 1 ? 0 : cur + 1);
 const prev = () => go(cur - 1);
 
-// التقليب التلقائي: بعد ٤ ثواني على الصفحة يروح للي بعدها لوحده (ويقف عند آخر صفحة).
+// التقليب التلقائي: بعد ٤ ثواني على الصفحة يروح للي بعدها لوحده (الصفحة اللي عليها data-auto بتاخد وقتها هي).
+// بيقف عند آخر صفحة؛ لو الضيف ضغط هناك يرجع لأول صفحة والتقليب التلقائي يبدأ تاني.
 // أي ضغطة من الضيف بتبدأ العدّ من الأول.
 const AUTO_MS = 4000;
 let autoTimer = null;
 function scheduleAuto(extra = 0) {
   clearTimeout(autoTimer);
-  if (cur < pages.length - 1) autoTimer = setTimeout(() => go(cur + 1), AUTO_MS + extra);
+  const ms = Number(pages[cur].dataset.auto) || AUTO_MS;
+  if (cur < pages.length - 1) autoTimer = setTimeout(() => go(cur + 1), ms + extra);
 }
 
 function showUI() { bars.hidden = false; hint.hidden = false; render(); scheduleAuto(); }
