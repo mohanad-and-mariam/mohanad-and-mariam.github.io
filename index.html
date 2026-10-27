@@ -435,17 +435,14 @@
     </div>
   </section>
 
-  <!-- 6. اللبس + الختام -->
+  <!-- 6. الختام -->
   <section class="page light">
     <div class="frame"></div>
     <svg class="sprig tl"><use href="#sprig"/></svg>
     <svg class="sprig br"><use href="#sprig"/></svg>
-    <div class="caps st" style="--i:0">اللبس</div>
-    <p class="lead st" style="--i:1" data-f="dressCode">لا يوجد زي رسمي محدد — تعالوا بأجمل إطلالة</p>
-    <svg class="divider st" style="--i:2;margin:28px auto"><use href="#divider"/></svg>
-    <div class="caps st" style="--i:3">في انتظاركم لنحتفل معاً</div>
-    <div class="lux-names script foil st" style="--i:4;font-size:clamp(46px,13vw,60px);margin-top:12px" data-f="names">Mohanad &amp; Mariam</div>
-    <div class="date-lux st" style="--i:5">
+    <div class="caps st" style="--i:0">في انتظاركم لنحتفل معاً</div>
+    <div class="lux-names script foil st" style="--i:1;font-size:clamp(46px,13vw,60px);margin-top:12px" data-f="names">Mohanad &amp; Mariam</div>
+    <div class="date-lux st" style="--i:2">
       <span class="foil" data-f="dd">11</span><i></i><span class="foil" data-f="mm">11</span><i></i><span class="foil" data-f="yyyy">2026</span>
     </div>
   </section>
@@ -467,7 +464,6 @@ const CONFIG = {
   venueAddress: "مدينة نصر، القاهرة",
   mapQuery: "Al Masa Hotel Nasr City Cairo",       // اللي يتكتب في جوجل ماب، أو حط لينك كامل في mapUrl
   mapUrl: "",
-  dressCode: "لا يوجد زي رسمي محدد — تعالوا بأجمل إطلالة",
   thanks: "إلى أهلنا وأحبابنا الذين كانوا معنا في كل خطوة، محبتكم هي ما أوصلنا إلى هذا اليوم، ويسعدنا أن نحتفل معكم.",
   music: "music.mp3"                     // ملف الموسيقى جنب الملف ده (سيبه فاضي لو مش عايز موسيقى)
 };
@@ -491,7 +487,6 @@ const fields = {
   doorsOpen: CONFIG.doorsOpen,
   venueName: CONFIG.venueName,
   venueAddress: CONFIG.venueAddress,
-  dressCode: CONFIG.dressCode,
   thanks: CONFIG.thanks
 };
 document.querySelectorAll("[data-f]").forEach(el => { el.textContent = fields[el.dataset.f] ?? ""; });
