@@ -555,11 +555,21 @@ function go(n) {
     busy = false;
   }, 960);
   cur = n; render();
+  scheduleAuto(960);
 }
 const next = () => go(cur === pages.length - 1 ? 0 : cur + 1);
 const prev = () => go(cur - 1);
 
-function showUI() { bars.hidden = false; hint.hidden = false; render(); }
+// التقليب التلقائي: بعد ٤ ثواني على الصفحة يروح للي بعدها لوحده (ويقف عند آخر صفحة).
+// أي ضغطة من الضيف بتبدأ العدّ من الأول.
+const AUTO_MS = 4000;
+let autoTimer = null;
+function scheduleAuto(extra = 0) {
+  clearTimeout(autoTimer);
+  if (cur < pages.length - 1) autoTimer = setTimeout(() => go(cur + 1), AUTO_MS + extra);
+}
+
+function showUI() { bars.hidden = false; hint.hidden = false; render(); scheduleAuto(); }
 door.addEventListener("change", () => { startMusic(); setTimeout(showUI, 3700); });
 
 // الضغط: الثلث اليمين يرجع، الباقي يقدّم — والسحب يمين/شمال (زي كتاب عربي)
