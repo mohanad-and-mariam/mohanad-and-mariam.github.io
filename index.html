@@ -401,7 +401,7 @@
   </section>
 
   <!-- 3. الآية (كلامها أطول فبتاخد ٧ ثواني) -->
-  <section class="page light" data-auto="7000" style="background:var(--paper)">
+  <section class="page light" data-auto="10000" style="background:var(--paper)">
     <div class="frame"></div>
     <div class="verse-note st" style="--i:0">يُرجى إيقاف الموسيقى أثناء قراءة الآية</div>
     <button class="btn pause-btn st" id="versePause" style="--i:1">إيقاف الموسيقى</button>
@@ -411,7 +411,7 @@
   </section>
 
   <!-- 4. الشكر (كلامها أطول فبتاخد ٧ ثواني) -->
-  <section class="page light" data-auto="7000">
+  <section class="page light" data-auto="10000">
     <div class="frame"></div>
     <svg class="sprig tl"><use href="#sprig"/></svg>
     <svg class="sprig br"><use href="#sprig"/></svg>
@@ -558,7 +558,7 @@ const prev = () => go(cur - 1);
 // التقليب التلقائي: بعد ٤ ثواني على الصفحة يروح للي بعدها لوحده (الصفحة اللي عليها data-auto بتاخد وقتها هي).
 // بيقف عند آخر صفحة؛ لو الضيف ضغط هناك يرجع لأول صفحة والتقليب التلقائي يبدأ تاني.
 // أي ضغطة من الضيف بتبدأ العدّ من الأول.
-const AUTO_MS = 4000;
+const AUTO_MS = 7000;
 let autoTimer = null;
 function scheduleAuto(extra = 0) {
   clearTimeout(autoTimer);
